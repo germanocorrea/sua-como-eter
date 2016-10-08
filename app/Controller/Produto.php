@@ -20,4 +20,9 @@ class Produto extends Controller
     {
 //        $this->Produto->search('one', ['conditions' => ['id = ?' => (int) $productId]]);
     }
+
+    public function cart()
+    {
+        // code
+    }
 }

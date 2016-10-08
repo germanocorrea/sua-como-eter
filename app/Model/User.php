@@ -2,14 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: ggcorrea
- * Date: 06/10/16
- * Time: 23:50
+ * Date: 07/10/16
+ * Time: 16:06
  */
 
 namespace Model;
 
 
-class Cart extends Model
+class User extends Model
 {
 
 }

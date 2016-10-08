@@ -5,6 +5,9 @@
 require 'app/Autoload.php';
 
 define('APP_DIR', './app');
+define('APP_NAME', 'Sua Como Éter');
+define('ASSETS_DIR', './assets');
+define('WEB_ROOT', 'http://localhost/sua-como-eter');
 
 if (isset($_SERVER['PATH_INFO'])
     && strlen($_SERVER['PATH_INFO'])
@@ -27,3 +30,4 @@ $view_variables = $controller_object->getVariables();
 
 $view = new \View\View($route['controller'], $route['action']);
 $view->assign($view_variables);
+$view->render();

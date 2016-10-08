@@ -14,13 +14,12 @@ class View
     private $controller;
     private $action;
     private $values;
+    private $layout = 'default';
 
     public function __construct($controller, $action)
     {
         $this->action = $action;
         $this->controller = ucfirst($controller);
-
-        // TODO: carregar assets
     }
 
     public function assign($values)
@@ -28,9 +27,14 @@ class View
         $this->values = $values;
     }
 
-    public function __destruct()
+    public function render()
     {
-        require APP_DIR . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php';
+        require APP_DIR . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR . 'layouts' . DIRECTORY_SEPARATOR . $this->layout . '.php';
+    }
+
+    private function loadAssets()
+    {
+        // TODO: carregar assets
     }
 
 }

@@ -14,6 +14,5 @@ class Index extends Controller
     public  function index()
     {
         // code
-        echo 'Ola';
     }
 }
