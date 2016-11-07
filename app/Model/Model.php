@@ -45,6 +45,11 @@ abstract class Model
         return strtolower(end($class)) . 's';
     }
 
+    public function setTableName($table_name)
+    {
+        return $this->table = $table_name;
+    }
+
     public function search($what, $options = false)
     {
         switch ($what)

@@ -2,12 +2,15 @@
 /**
  * @brief system router and controller, model and view loader
  */
-require 'app/Autoload.php';
 
-define('APP_DIR', './app');
-define('APP_NAME', 'Sua Como Éter');
-define('ASSETS_DIR', './assets');
-define('WEB_ROOT', 'http://localhost/sua-como-eter');
+// TODO: substituir o seguinte pq n precisa de mta coisa que tem aqui, tipo o require do config server :P
+require 'app/Autoload.php';
+require 'app/Config/Server.php';
+define('APP_DIR', \Config\Server::$app_dir);
+define('APP_NAME', \Config\Server::$app_name);
+define('ASSETS_DIR', \Config\Server::$assets_dir);
+define('WEB_ROOT', \Config\Server::$web_root);
+define('SERVER_DIR', \Config\Server::$server_dir);
 
 if (isset($_SERVER['PATH_INFO'])
     && strlen($_SERVER['PATH_INFO'])
