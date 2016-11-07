@@ -79,15 +79,12 @@ abstract class Controller
                 break;
             case 'user':
                 $this->variables['have_cart'] = true;
-                $this->variables['user_name'] = 'Fulano';
+                $this->variables['user_name'] = $_SESSION['user'];
                 $this->variables['user_dropdown'] = [
                     ['Perfil', WEB_ROOT . '/user/profile'],
                     ['Configurações', WEB_ROOT . '/user/configuration'],
                     ['Sair', WEB_ROOT . '/user/logout'],
                 ];
-                break;
-            case 'default':
-                return false;
                 break;
         }
         return true;
