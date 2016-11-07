@@ -40,6 +40,7 @@ class User extends Controller
     public function logout()
     {
         session_destroy();
+        header('Location: ' . WEB_ROOT);
     }
 
     public function configuration()
