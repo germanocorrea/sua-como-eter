@@ -1,24 +1,24 @@
 <br>
 <div class="row">
-    <h2>Novo Usuário</h2>
+    <h2><i class="fi-torsos-female-male"></i> Novo Cliente</h2>
     <hr>
     <div class="medium-6 small-12 columns">
         <h3>A maior loja de suéteres do Brasil!</h3>
         <p>Nihil natus explicabo occaecati inventore. Minima laudantium natus est non dolorem. Ducimus possimus porro quos. Aliquam reiciendis molestiae perspiciatis quam qui eius et. Ex eos sunt quasi iusto. Rerum sapiente voluptas eum veniam quia esse explicabo.</p>
 
-        <div class="row">
-            <div class="small-6 columns">
-                <ul>
-                    <li>Item</li>
-                    <li>Item</li>
-                    <li>Item</li>
+        <div class="row cadastrolist">
+            <div class="medium-6 columns">
+                <ul style="list-style: none">
+                    <li><i class="cadastroicon fi-heart"></i> Favoritos</li>
+                    <li><i class="cadastroicon fi-trees"></i> Sustentáveis</li>
+                    <li><i class="cadastroicon fi-pricetag-multiple"></i> Preço Acessível</li>
                 </ul>
             </div>
-            <div class="small-6 columns">
-                <ul>
-                    <li>Item</li>
-                    <li>Item</li>
-                    <li>Item</li>
+            <div class="medium-6 columns">
+                <ul style="list-style: none">
+                    <li><i class="cadastroicon fi-check"></i> Qualidade</li>
+                    <li><i class="cadastroicon fi-check"></i> Segurança</li>
+                    <li><i class="cadastroicon fi-check"></i> Facilidade</li>
                 </ul>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     <label>Nome de usuário
                         <input name="username" type="text" placeholder="Nome de usuário" aria-describedby="describeUsername" required pattern="alpha_numeric">
                         <span class="form-error">Nome de usuário inválido</span>
-                        <p class="help-text" id="describeUsername">No mínimo 4 caracteres, pode haver números e underline, sem espaço e acentos.</p>
+                        <p class="help-text" id="describeUsername">Pode haver números, sem espaço, acentos ou underline.</p>
                     </label>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                         <input name="password" type="password" id="password" placeholder="Senha" aria-describedby="describePassword" required pattern="alpha_numeric">
                         <span class="form-error">Senha inválida!</span>
                     </label>
-                    <p class="help-text" id="describePassword">Mínimo de 6 caracteres, pode haver espaço, símbolos, letras maiúsculas e minúsculas.</p>
+                    <p class="help-text" id="describePassword">Pode haver letras maiúsculas, minúsculas e números.</p>
                 </div>
                 <div class="medium-6 columns">
                     <label>Repita a senha
