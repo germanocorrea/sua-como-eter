@@ -11,6 +11,10 @@ namespace Controller;
 
 class Administration extends Controller
 {
+    public function __construct()
+    {
+        // TODO: se usuário não for adm ou funcionario, redireciona a pagina
+    }
 
     public function systemConfiguration()
     {
