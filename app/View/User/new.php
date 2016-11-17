@@ -6,7 +6,7 @@
         <h3>A maior loja de suéteres do Brasil!</h3>
         <p>Nihil natus explicabo occaecati inventore. Minima laudantium natus est non dolorem. Ducimus possimus porro quos. Aliquam reiciendis molestiae perspiciatis quam qui eius et. Ex eos sunt quasi iusto. Rerum sapiente voluptas eum veniam quia esse explicabo.</p>
 
-        <div class="row cadastrolist">
+        <div class="row cadastrolist callout">
             <div class="medium-6 columns">
                 <ul style="list-style: none">
                     <li><i class="cadastroicon fi-heart"></i> Favoritos</li>

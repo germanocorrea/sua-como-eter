@@ -5,7 +5,10 @@
 }
 
 .cadastrolist {
-    color: #C9ADA7;
+    color: #C9ADA7 !important;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
+}
+.cadastrolist ul {
+    margin:0;
 }
