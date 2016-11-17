@@ -28,13 +28,24 @@ class User extends Controller
             if ($existing_user['password'] != $_POST['password']) header('Location: ' . WEB_ROOT . '/user/login');
 
             $_SESSION['user'] = $_POST['username'];
+            $_SESSION['user_type'] = $existing_user['type'];
             header('Location: ' . WEB_ROOT . '/produto/cart');
         }
     }
 
-    public function new()
+    public function new($type = null)
     {
-        // code
+
+        if (isset($_POST['submit']))
+        {
+            $this->model->set('name', $_POST['name']);
+            $this->model->set('username', $_POST['username']);
+            $this->model->set('email', $_POST['email']);
+            $this->model->set('password', $_POST['password']); // TODO: criptografar isso
+            $this->model->set('type', (!$type) ? 'client' : 'employee');
+            $this->model->record();
+        }
+        if ($this->verifyLoggedSession() and $_SESSION['user_type'] != 'admin') header('Location: ' . WEB_ROOT);
     }
 
     public function logout()
@@ -48,9 +59,11 @@ class User extends Controller
         // code
     }
 
-    public function profile()
+    public function profile($profile)
     {
-        // code
+        if ($profile != $_SESSION['user'])
+            if ($this->verifyLoggedSession() and $_SESSION['user_type'] != 'admin')
+                header('Location: ' . WEB_ROOT);
     }
 
     public function compras()
