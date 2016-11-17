@@ -22,7 +22,7 @@
                     <ul class="dropdown menu" data-dropdown-menu="" role="menubar" data-dropdownmenu="9j1fi1-dropdownmenu">
                         <?php if ($values->have_cart) '<li role="menuitem" tabindex="0"><a href="#" tabindex="-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>'; ?>
                         <li class="has-submenu is-dropdown-submenu-parent is-down-arrow" role="menuitem" tabindex="0" title="One" aria-haspopup="true">
-                            <a href="#" tabindex="-1"><i class="fa fa-user" aria-hidden="true"></i> <?php echo $values->user_name; ?></a>
+                            <a href="#" tabindex="-1"><i class="fi-torso" aria-hidden="true"></i> <?php echo $values->user_name; ?></a>
                             <ul class="submenu menu vertical is-dropdown-submenu first-sub" data-submenu="" aria-hidden="true" tabindex="-1" role="menu">
                                 <?php foreach ($values->user_dropdown as $item): ?>
                                 <li role="menuitem" class="is-submenu-item is-dropdown-submenu-item" tabindex="0"><a href="<?php echo $item[1]; ?>" tabindex="-1"><?php echo $item[0]; ?></a></li>
@@ -36,7 +36,7 @@
         <?php require  APP_DIR . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php'; ?>
         <footer class="row column">
             <hr>
-            <p>Construído com ZURB Foundation</p>
+            <p><i class="fi-social-zurb"></i> Construído com ZURB Foundation</p>
         </footer>
         <?php echo $this->loadAssets('js', 'vendor'); ?>
         <?php echo $this->loadAssets('js'); ?>
