@@ -172,7 +172,7 @@ abstract class Model
         return $set;
     }
 
-    public function record($multi = false) // TODO: que que é multi
+    public function record($multi = false)
     {
         if (!$this->data && !$multi) return false;
 
