@@ -1,3 +1,4 @@
+<!--TODO: dropdown de administração-->
 <!DOCTYPE html>
 <html class="no-js" lang="pt-BR" dir="ltr">
     <head>
@@ -7,7 +8,6 @@
         <title><?php echo APP_NAME; ?></title>
         <?php echo $this->loadAssets('css'); ?>
         <?php echo $this->loadAssets('fonts'); ?>
-
     </head>
     <body>
         <div class="top-bar">
@@ -36,7 +36,7 @@
         <?php require  APP_DIR . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php'; ?>
         <footer class="row column">
             <hr>
-            <p><i class="fi-social-zurb"></i> Construído com ZURB Foundation</p>
+            <p><i class="fi-social-zurb" style="font-size: 1.5em"></i> Construído com ZURB Foundation</p>
         </footer>
         <?php echo $this->loadAssets('js', 'vendor'); ?>
         <?php echo $this->loadAssets('js'); ?>
