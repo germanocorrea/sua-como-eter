@@ -22,6 +22,19 @@ abstract class Controller
         $this->defineUserMenu($logged);
     }
 
+    protected function debug($what)
+    {
+        echo '<pre>';
+        print_r($what);
+        echo '</pre>';
+        die;
+    }
+
+    protected function verifyPermission()
+    {
+        if ($_SESSION['user_type'] != 'admin') header('Location: ' . WEB_ROOT);
+    }
+
     public function setVariables($var, $value)
     {
         $this->variables[$var] = $value;
@@ -62,11 +75,10 @@ abstract class Controller
             case 'user':
                 $this->variables['have_cart'] = true;
                 $this->variables['user_name'] = $_SESSION['user'];
-                $this->variables['user_dropdown'] = [
-                    ['Perfil', WEB_ROOT . '/user/profile'],
-                    ['Configurações', WEB_ROOT . '/user/configuration'],
-                    ['Sair', WEB_ROOT . '/user/logout'],
-                ];
+                if ($_SESSION['user_type'] == 'admin') $this->variables['user_dropdown'] = [['Administração', WEB_ROOT . '/administration']];
+                $this->variables['user_dropdown'][] = ['Perfil', WEB_ROOT . '/user/profile'];
+                $this->variables['user_dropdown'][] = ['Configurações', WEB_ROOT . '/user/configuration'];
+                $this->variables['user_dropdown'][] = ['Sair', WEB_ROOT . '/user/logout'];
                 break;
         }
         return true;

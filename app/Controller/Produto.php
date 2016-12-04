@@ -24,16 +24,26 @@ class Produto extends Controller
         if ($productId == '/' || $productId == null) header('Location: ' . WEB_ROOT . '/produto');
 
         $product = $this->model->search('one', ['conditions' => ['id = ?' => (int) $productId]]);
+        if ($product == null) header('Location: ' . WEB_ROOT . '/produto/not-found');
+
         $this->variables['product_id'] = $productId;
         $this->variables['product_name'] = $product->get('modelo');
         $this->variables['product_description'] = $product->get('description');
 
         $this->model->setTableName('itens');
         $itens = $this->model->search('all', ['conditions' => ['idProduto = ?' => (int) $productId]]);
-        foreach ($itens as $item)
+        if ($itens != null)
         {
-            $this->variables['available_sizes'][$item['tamanho']] = $item['tamanho'];
+            foreach ($itens as $item)
+            {
+                $this->variables['available_sizes'][$item['tamanho']] = $item['tamanho'];
+            }
         }
+        else
+        {
+            $this->variables['available_sizes'] = false;
+        }
+        // TODO: imagens
 
         $this->model->setTableName('images');
         $images = $this->model->search('all', ['conditions' => ['idProduto = ?' => (int) $productId]]);
@@ -49,6 +59,11 @@ class Produto extends Controller
     }
 
     public function cart()
+    {
+        // code
+    }
+
+    public function not_found()
     {
         // code
     }

@@ -6,14 +6,9 @@
  * Time: 08:33
  */
 
-namespace Config;
-
-
-class Server
-{
-    public static $app_dir = 'app';
-    public static $app_name = 'Sua Como Éter';
-    public static $assets_dir = 'assets';
-    public static $web_root = 'http://localhost/sua-como-eter';
-    public static $server_dir = '/var/www/html/sua-como-eter';
-}
+define('APP_DIR', 'app');
+define('APP_NAME', 'Sua Como Éter');
+define('ASSETS_DIR', 'assets');
+define('PROTOCOL', 'http'); // or https
+define('WEB_ROOT', PROTOCOL . '://' . $_SERVER['HTTP_HOST'] . '/sua-como-eter');
+define('SERVER_DIR', '/var/www/html/sua-como-eter');

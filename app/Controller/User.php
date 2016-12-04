@@ -14,7 +14,7 @@ class User extends Controller
 
     public function login()
     {
-        if (isset($_SESSION['user'])) header('Location: '. WEB_ROOT . '/produto/cart');
+        if (isset($_SESSION['user'])) header('Location: '. WEB_ROOT);
 
         if (isset($_POST['username']))
         {
@@ -29,7 +29,7 @@ class User extends Controller
 
             $_SESSION['user'] = $_POST['username'];
             $_SESSION['user_type'] = $existing_user['type'];
-            header('Location: ' . WEB_ROOT . '/produto/cart');
+            header('Location: ' . WEB_ROOT);
         }
     }
 

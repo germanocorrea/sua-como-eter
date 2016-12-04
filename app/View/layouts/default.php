@@ -1,4 +1,3 @@
-<!--TODO: dropdown de administração-->
 <!DOCTYPE html>
 <html class="no-js" lang="pt-BR" dir="ltr">
     <head>

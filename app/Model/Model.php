@@ -8,7 +8,6 @@
 
 namespace Model;
 
-// TODO: documentar essa porra toda
 
 abstract class Model
 {

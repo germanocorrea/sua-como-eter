@@ -74,7 +74,7 @@ class View
         $select = '<select name="' . $name . '" id="' . $name . '">';
         foreach ($array as $key => $value)
         {
-            $select .= '<option value="' . $key . '">' . $value . '</option>';
+            $select .= '<option value="' . $value . '">' . $value . '</option>';
         }
         $select .= '</select>';
         return $select;
