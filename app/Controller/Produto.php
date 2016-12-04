@@ -47,15 +47,7 @@ class Produto extends Controller
 
         $this->model->setTableName('images');
         $images = $this->model->search('all', ['conditions' => ['idProduto = ?' => (int) $productId]]);
-        $this->variables['images_src'] = [
-            'main' => 'http://placehold.it/650x350',
-            'secondary' => [
-                'http://placehold.it/250x200',
-                'http://placehold.it/250x200',
-                'http://placehold.it/250x200',
-                'http://placehold.it/250x200',
-            ]
-        ];
+        $this->variables['image_src'] = 'http://placehold.it/650x350';
     }
 
     public function cart()

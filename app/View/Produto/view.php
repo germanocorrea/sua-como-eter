@@ -1,19 +1,9 @@
 <br>
 <div class="row">
     <div class="medium-6 columns">
-        <img class="thumbnail" src="<?php echo $values->images_src['main']; ?>">
-        <div class="row small-up-4">
-            <?php
-            foreach ($values->images_src['secondary'] as $image_url)
-            {
-                echo '<div class="column">';
-                echo '  <img class="thumbnail" src="' . $image_url . '">';
-                echo '</div>';
-            }
-            ?>
-        </div>
+        <img class="thumbnail" src="<?php echo $values->image_src; ?>">
     </div>
-    <div class="medium-6 large-5 columns">
+    <div class="medium-6 columns">
         <h3><?php echo $values->product_name; ?></h3>
         <p><?php echo $values->product_description; ?></p>
         <?php if ($values->available_sizes): ?>
@@ -46,7 +36,7 @@
         <?php endif;?>
         <?php if (!$values->available_sizes): ?>
         <br>
-        <div class="callout warning">Produto Indisponível</div>
+        <div class="callout alert">Produto Indisponível</div>
         <?php endif;?>
     </div>
 </div>
