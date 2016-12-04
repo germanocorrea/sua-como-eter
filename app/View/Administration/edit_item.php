@@ -30,7 +30,7 @@
         <div class="row">
             <div class="medium-12 columns">
                 <button class="button" type="submit" name="submit" value="update">Atualizar item</button>
-                <button class="button secondary" type="submit" name="submit" value="remove">Excluir item</button>
+                <button class="button alert" type="submit" name="submit" value="remove">Excluir item</button>
             </div>
         </div>
     </form>
