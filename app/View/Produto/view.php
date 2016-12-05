@@ -1,7 +1,7 @@
 <br>
 <div class="row">
     <div class="medium-6 columns">
-        <img class="thumbnail" src="<?php echo $values->image_src; ?>">
+        <img class="thumbnail" src="<?php echo $values->img; ?>">
     </div>
     <div class="medium-6 columns">
         <h3><?php echo $values->product_name; ?></h3>

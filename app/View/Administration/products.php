@@ -7,7 +7,7 @@
             <div class="callout">
                 <h3>Adicionar Modelo</h3>
                 <div class="row columns">
-                    <form method="post" action="<?php echo WEB_ROOT ?>/administration/products" novalidate data-abide="">
+                    <form method="post" enctype="multipart/form-data" action="<?php echo WEB_ROOT ?>/administration/products" novalidate data-abide="">
                         <div class="row">
                             <div class="medium-6 columns">
                                 <div class="medium-12 columns">
@@ -23,9 +23,9 @@
                                     </label>
                                 </div>
                                 <div class="medium-12 columns">
-                                    <label>Galeria de Imagens
-                                        <input id="images" type="file" required>
-                                        <span class="form-error">Arquivos inválidos</span>
+                                    <label>Imagem
+                                        <input id="img" type="file" name="img" required>
+                                        <span class="form-error">Arquivo inválido</span>
                                     </label>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                         <td><?php echo $modelo['modelo']; ?></td>
                         <td><?php echo $modelo['preco']; ?></td>
                         <td><?php echo $modelo['description']; ?></td>
-                        <td style="float: right;"><button class="button">Excluir</button></td>
+                        <td style="float: right;"><a class="button" href="<?php echo WEB_ROOT; ?>/administration/edit-product/<?php echo $modelo['id']; ?>">Editar</a></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

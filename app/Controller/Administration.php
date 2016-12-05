@@ -30,11 +30,7 @@ class Administration extends Controller
 
         if (isset($_POST['modeloSubmit']))
         {
-            $this->model->setTableName('produtos');
-            $this->model->set('modelo', $_POST['nomeModelo']);
-            $this->model->set('preco', $_POST['preco']);
-            $this->model->set('description', $_POST['descricaoModelo']);
-            $this->model->record();
+            $this->recordProductData();
         }
 
         $this->model->setTableName('produtos');
@@ -71,15 +67,32 @@ class Administration extends Controller
         }
     }
 
-    public function gallery()
-    {
-        // TODO: implementar add de imagens pras galerias
-    }
-
-    public function edit_modelo($id)
+    public function edit_product($id)
     {
         $this->verifyPermission();
-        // code
+
+        $this->model->setTableName('produtos');
+
+        if (isset($_POST['submit']))
+        {
+            if ($_POST['submit'] == 'remove')
+            {
+                $this->model->deleteById($id);
+                header('Location: ' . WEB_ROOT . '/administration/products');
+            }
+            elseif ($_POST['submit'] == 'update')
+            {
+                $this->recordProductData($id);
+            }
+        }
+
+        $produto = $this->model->search('one', [
+            'conditions' => [
+                'id = ?' => $id
+            ]
+        ]);
+
+        $this->setProductData($produto);
     }
 
     public function edit_item($id)
@@ -138,6 +151,28 @@ class Administration extends Controller
     {
         $this->verifyPermission();
         // code
+    }
+
+    private function recordProductData($id = null)
+    {
+
+        $this->model->setTableName('produtos');
+
+        if ($id != null) $this->model->set('id', $id);
+        $this->model->set('modelo', $_POST['nomeModelo']);
+        $this->model->set('preco', $_POST['preco']);
+        $this->model->set('description', $_POST['descricaoModelo']);
+        if (isset($_FILES['img']) && $_FILES['img']['name'] != null) $this->model->set('imgAddress', $this->fileUpload($_FILES['img']));
+
+        $this->model->record();
+    }
+
+    private function setProductData($produto)
+    {
+        $this->variables['id'] = $produto->get('id');
+        $this->variables['modelo'] = $produto->get('modelo');
+        $this->variables['preco'] = $produto->get('preco');
+        $this->variables['description'] = $produto->get('description');
     }
 
 }

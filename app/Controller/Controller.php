@@ -26,6 +26,7 @@ abstract class Controller
     {
         echo '<pre>';
         print_r($what);
+        var_dump($what);
         echo '</pre>';
         die;
     }
@@ -82,5 +83,13 @@ abstract class Controller
                 break;
         }
         return true;
+    }
+
+    protected function fileUpload($file)
+    {
+        $code = rand(100, 1000000000);
+        $uploadFile = 'uploads/' . $code . '-' . $file['name'];
+        move_uploaded_file($file['tmp_name'], SERVER_DIR . '/' . $uploadFile);
+        return WEB_ROOT . '/' . $uploadFile;
     }
 }
