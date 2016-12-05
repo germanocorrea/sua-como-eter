@@ -56,7 +56,30 @@ class User extends Controller
 
     public function configuration()
     {
-        // code
+        $this->model->setTableName('users');
+        if (isset($_POST['submit']))
+        {
+            $user = $this->model->search('one', [
+                'conditions' => [
+                    'username = ?' => $_SESSION['user']
+                ]
+            ]);
+            $this->model->set('id', $user->get('id'));
+            $this->model->set('name', $_POST['name']);
+            $this->model->set('username', $_POST['username']);
+            $this->model->set('email', $_POST['email']);
+
+            $this->model->record();
+        }
+        $user = $this->model->search('one', [
+            'conditions' => [
+                'username = ?' => $_SESSION['user']
+            ]
+        ]);
+
+        $this->variables['name'] = $user->get('name');
+        $this->variables['username'] = $user->get('username');
+        $this->variables['email'] = $user->get('email');
     }
 
     public function profile($profile)
