@@ -6,7 +6,6 @@
         <ul class="menu vertical callout">
             <li><a href="<?php echo WEB_ROOT; ?>/user/profile">Perfil</a></li>
             <li><a href="<?php echo WEB_ROOT; ?>/user/change-password">Trocar Senha</a></li>
-            <li><a href="<?php echo WEB_ROOT; ?>/user/paymant">Atualizar Informações de Pagamento e Cobrança</a></li>
             <li><a href="<?php echo WEB_ROOT; ?>/user/compras">Histórico</a></li>
             <li class="callout small alert"><a href="<?php echo WEB_ROOT; ?>/user/delete">Apagar Conta</a></li>
         </ul>

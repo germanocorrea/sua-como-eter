@@ -226,6 +226,22 @@ abstract class Model
         return false;
     }
 
+    public function deleteByUniqueKey($key, $column)
+    {
+        if (is_string($key))
+        {
+            $options = [
+                'conditions' => [
+                    $column . ' = ?' => $key,
+                ]
+            ];
+
+            $sql = $this->mountSQL($options, 'delete');
+
+            if ($this->executeSQL($sql, $options)) return true;
+        }
+    }
+
     public function get($var)
     {
         return isset($this->data[$var]) ? $this->data[$var] : null;

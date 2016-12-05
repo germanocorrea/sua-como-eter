@@ -94,9 +94,19 @@ class User extends Controller
         if (isset($_POST['submit']))
         {
             $this->model->setTableName('users');
-
+            $this->discoverUserId(); // TODO: fazer esse método
             $this->model->set('password', $_POST['password']);
             $this->model->record();
+        }
+    }
+
+    public function delete()
+    {
+        if (isset($_POST['submit'])) if ($_SESSION['user'] == $_POST['username'])
+        {
+            $this->model->setTableName('users');
+            $this->model->deleteByUniqueKey($_POST['username'], 'username');
+            $this->logout();
         }
     }
 
