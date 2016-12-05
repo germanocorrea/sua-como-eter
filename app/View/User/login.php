@@ -5,7 +5,7 @@
 <div class="row columns medium-3 small-12 callout">
     <div class="small-12 columns">
         <div class="row">
-            <h1 style="font-size: x-large;">Login</h1>
+            <h2 style="font-size: x-large;">Login</h2>
         </div>
         <div class="row">
             <form action="<?php echo WEB_ROOT ?>/user/login" method="post">

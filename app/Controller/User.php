@@ -89,6 +89,17 @@ class User extends Controller
                 header('Location: ' . WEB_ROOT);
     }
 
+    public function change_password()
+    {
+        if (isset($_POST['submit']))
+        {
+            $this->model->setTableName('users');
+
+            $this->model->set('password', $_POST['password']);
+            $this->model->record();
+        }
+    }
+
     public function compras()
     {
         // code
