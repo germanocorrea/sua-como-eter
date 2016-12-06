@@ -160,10 +160,29 @@ class Administration extends Controller
 
     }
 
-    public function editUser($id)
+    public function edit_user($id)
     {
         $this->verifyPermission();
-        // code
+
+        $this->model->setTableName('users');
+
+        if (isset($_POST['submit']))
+        {
+            $this->model->set('id', $id);
+            $this->model->set('status', $_POST['status']);
+            $this->model->set('type', $_POST['type']);
+            $this->model->record();
+            header('Location: ' . WEB_ROOT . '/administration/users');
+        }
+
+        $this->variables['id'] = $id;
+        $user = $this->model->search('one', [
+            'conditions' => [
+                'id = ?' => $id
+            ]
+        ]);
+        $this->variables['status'] = $user->get('status');
+        $this->variables['type'] = $user->get('type');
     }
 
     private function recordProductData($id = null)
