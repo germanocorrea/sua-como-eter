@@ -144,7 +144,20 @@ class Administration extends Controller
     public function users()
     {
         $this->verifyPermission();
-        // code
+
+        $this->model->setTableName('users');
+        $users = $this->model->search('all');
+        $admins = [];
+        $clients = [];
+        foreach ($users as $user)
+        {
+            if ($user['type'] == 'admin') $admins[] = $user;
+            else $clients[] = $user;
+        }
+
+        $this->variables['admins'] = $admins;
+        $this->variables['clients'] = $clients;
+
     }
 
     public function editUser($id)

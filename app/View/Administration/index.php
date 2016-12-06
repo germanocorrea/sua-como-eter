@@ -9,7 +9,7 @@
         <ul class="menu vertical callout">
             <li><a href="<?php echo WEB_ROOT . '/administration/itens' ?>">Itens</a></li>
             <li><a href="<?php echo WEB_ROOT . '/administration/products' ?>">Modelos</a></li>
-            <li><a href="<?php ?>">Sistema</a></li>
+            <li><a href="<?php echo WEB_ROOT . '/administration/users' ?>">Usuários</a></li>
         </ul>
     </div>
     <div class="medium-12">
