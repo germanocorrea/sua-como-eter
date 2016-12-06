@@ -25,11 +25,17 @@ class User extends Controller
                 if ($user['username'] == $_POST['username']) $existing_user = $user;
             }
             if ($existing_user == null) header('Location: ' . WEB_ROOT . '/user/login');
-            if ($existing_user['password'] != $_POST['password']) header('Location: ' . WEB_ROOT . '/user/login');
-
-            $_SESSION['user'] = $_POST['username'];
-            $_SESSION['user_type'] = $existing_user['type'];
-            header('Location: ' . WEB_ROOT);
+            if ($existing_user['password'] != $_POST['password'])
+            {
+                $this->logout();
+                header('Location: ' . WEB_ROOT . '/user/login');
+            }
+            else
+            {
+                $_SESSION['user'] = $_POST['username'];
+                $_SESSION['user_type'] = $existing_user['type'];
+                header('Location: ' . WEB_ROOT);
+            }
         }
     }
 
