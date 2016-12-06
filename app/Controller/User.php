@@ -94,10 +94,22 @@ class User extends Controller
         if (isset($_POST['submit']))
         {
             $this->model->setTableName('users');
-            $this->discoverUserId(); // TODO: fazer esse método
+            $this->model->set('id', $this->discoverUserId());
             $this->model->set('password', $_POST['password']);
             $this->model->record();
+            header('Location: ' . WEB_ROOT . '/user/configuration');
         }
+    }
+
+    private function discoverUserId()
+    {
+        $this->model->setTableName('users');
+        $user = $this->model->search('one', [
+            'conditions' => [
+                'username = ?' => $_SESSION['user']
+            ]
+        ]);
+        return $user->get('id');
     }
 
     public function delete()

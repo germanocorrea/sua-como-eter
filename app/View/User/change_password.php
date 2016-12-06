@@ -2,7 +2,7 @@
 <div class="row columns medium-3 small-12 callout">
     <h2 style="font-size: x-large;">Modificar Senha</h2>
     <div class="row">
-        <form action="<?php echo WEB_ROOT; ?>/user/configuration">
+        <form action="<?php echo WEB_ROOT; ?>/user/change-password" method="post">
             <div class="small-12 columns">
               <label>Digite a nova senha
                 <input type="password" name="password" id="password" placeholder="Digite a nova senha" aria-describedby="password" required >
