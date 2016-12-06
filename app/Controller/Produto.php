@@ -48,10 +48,56 @@ class Produto extends Controller
         if ($this->variables['img'] == null) $this->variables['img'] = 'http://placehold.it/650x350';
     }
 
-    public function cart()
+    public function cart(){}
+
+    private function getProdInfoByID($id)
     {
-        // code
+        $this->model->setTableName('produtos');
+        $produto = $this->model->search('one', [
+            'conditions' => [
+                'id = ?' => $id
+            ]
+        ]);
+        return [
+            'nome' => $produto->get('modelo'),
+            'preco' => $produto->get('preco')
+        ];
     }
+
+    public function addCart()
+    {
+
+        if (!isset($_SESSION['carrinho']['produtos'][$_POST['submit']])) {
+
+            $_SESSION['carrinho']['produtos'][] = [
+                'id' => $_POST['submit'],
+                'size' => $_POST['size'],
+                'nome' => $this->getProdInfoByID($_POST['submit'])['nome'],
+                'preco' => $this->getProdInfoByID($_POST['submit'])['preco']
+            ];
+
+            $_SESSION['carrinho']['preco'] += $this->getProdInfoByID($_POST['submit'])['preco'];
+
+        }
+
+        header('Location: ' . WEB_ROOT . '/produto/cart');
+    }
+
+    public function limparCarrinho(){
+        unset($_SESSION['carrinho']);
+        header('Location: ' . WEB_ROOT . '/produto/cart');
+    }
+
+    public function removeFromCart($id)
+    {
+        foreach ($_SESSION['carrinho']['produtos'] as $key => $produto)
+        {
+            if ($produto['id'] == $id) unset($_SESSION['carrinho']['produtos'][$key]);
+        }
+        header('Location: ' . WEB_ROOT . '/produto/cart');
+    }
+
+    public function confirmar_compra(){}
 
     public function not_found() {}
 }

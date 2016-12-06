@@ -20,6 +20,13 @@ abstract class Controller
         session_start();
         $logged = ($this->verifyLoggedSession()) ? 'user' : 'guest';
         $this->defineUserMenu($logged);
+
+       if (isset($_SESSION['user_type']))
+           if ($_SESSION['user_type'] == 'client')
+               if (!isset($_SESSION['carrinho'])) {
+                   $_SESSION['carrinho']['produtos'] = [];
+                   $_SESSION['carrinho']['total_preco'] = 0;
+           }
     }
 
     protected function debug($what)
@@ -90,6 +97,6 @@ abstract class Controller
         $code = rand(100, 1000000000);
         $uploadFile = 'uploads/' . $code . '-' . $file['name'];
         move_uploaded_file($file['tmp_name'], SERVER_DIR . '/' . $uploadFile);
-        return WEB_ROOT . '/' . $uploadFile;
+        return $uploadFile;
     }
 }
