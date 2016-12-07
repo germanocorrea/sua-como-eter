@@ -81,9 +81,14 @@ class Produto extends Controller
 
             $_SESSION['carrinho']['preco'] += $this->getProdInfoByID($_POST['submit'])['preco'];
 
+            $this->model->setTableName('itens');
+            $this->model->set('id', $_POST['submit']);
+            $this->model->set('status', 0);
+            $this->model->record();
+
         }
 
-        header('Location: ' . WEB_ROOT . '/produto/cart?=Item adicionado ao carrinho com sucesso!');
+        header('Location: ' . WEB_ROOT . '/produto/cart?alert=Item adicionado ao carrinho com sucesso!');
     }
 
     public function limparCarrinho(){
