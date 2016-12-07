@@ -12,6 +12,11 @@ namespace Controller;
 class User extends Controller
 {
 
+    public function index()
+    {
+        header('Location: ' . WEB_ROOT . '/user/profile');
+    }
+
     public function login()
     {
         if (isset($_SESSION['user'])) header('Location: '. WEB_ROOT);
