@@ -62,7 +62,6 @@
                                     <th width="">ID</th>
                                     <th width="">Modelo</th>
                                     <th width="">Tamanho</th>
-                                    <th width="">Link</th>
                                     <th width="">Operações</th>
                                 </tr>
                                 </thead>
@@ -80,7 +79,6 @@
                                         }
                                         ?>
                                         <td><?php echo $item['tamanho']; ?></td>
-                                        <td><a href="<?php echo WEB_ROOT; ?>/produto/view/<?php echo $item['id']; ?>">Produto na Loja</a></td>
                                         <td style="float: right;"><a class="button" href="<?php echo WEB_ROOT; ?>/administration/edit-item/<?php echo $item['id']; ?>">Editar</a></td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -112,7 +110,6 @@
                                         }
                                         ?>
                                         <td><?php echo $item['tamanho']; ?></td>
-                                        <td><a href="<?php echo WEB_ROOT; ?>/produto/view/<?php echo $item['id']; ?>">Produto na Loja</a></td>
                                         <td style="float: right;"><a class="button" href="<?php echo WEB_ROOT; ?>/administration/edit-item/<?php echo $item['id']; ?>">Editar</a></td>
                                     </tr>
                                 <?php endforeach; ?>

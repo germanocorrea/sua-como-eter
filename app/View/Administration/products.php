@@ -52,6 +52,7 @@
                     <th width="">Nome</th>
                     <th width="">Preço</th>
                     <th width="">Descrição</th>
+                    <th width="">Link</th>
                     <th width="">Operações</th>
                 </tr>
                 </thead>
@@ -62,6 +63,7 @@
                         <td><?php echo $modelo['modelo']; ?></td>
                         <td><?php echo $modelo['preco']; ?></td>
                         <td><?php echo $modelo['description']; ?></td>
+                        <td><a href="<?php echo WEB_ROOT; ?>/produto/view/<?php echo $modelo['id']; ?>">Produto na Loja</a></td>
                         <td style="float: right;"><a class="button" href="<?php echo WEB_ROOT; ?>/administration/edit-product/<?php echo $modelo['id']; ?>">Editar</a></td>
                     </tr>
                 <?php endforeach; ?>
