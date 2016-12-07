@@ -1,4 +1,3 @@
-<br>
 <div class="row">
     <div class="medium-12 columns">
         <h2>Administração</h2>

@@ -32,6 +32,27 @@
                 </div>
             </div>
         </div>
+        <?php if (isset($_SERVER['PATH_INFO']) && strlen($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] != '/'): ?>
+        <br>
+        <div class="row columns">
+            <nav aria-label="Você está aqui:" role="navigation">
+                <ul class="breadcrumbs">
+                    <?php $path = explode('/', $_SERVER['PATH_INFO']) ?>
+                    <li><a href="<?php echo WEB_ROOT ?>">PÁGINA INICIAL</a></li>
+                    <?php if (isset($path[2])): ?>
+                    <li><a href="<?php echo WEB_ROOT . '/' . $path[1] ?>"><?php echo strtoupper($path[1]) ?></a></li>
+                    <li>
+                        <span class="show-for-sr">Atual: </span> <?php echo strtoupper($path[2]) ?>
+                    </li>
+                    <?php else: ?>
+                        <li>
+                            <span class="show-for-sr">Atual: </span> <?php echo strtoupper($path[1]) ?>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </nav>
+        </div>
+        <?php endif; ?>
         <?php require  APP_DIR . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR . $this->controller . DIRECTORY_SEPARATOR . $this->action . '.php'; ?>
         <footer class="row column">
             <hr>

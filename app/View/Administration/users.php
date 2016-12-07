@@ -1,4 +1,3 @@
-<br>
 <div class="row collapse">
     <h2>Usuários</h2>
     <div class="medium-3 columns">

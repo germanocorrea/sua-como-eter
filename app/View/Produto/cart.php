@@ -1,4 +1,3 @@
-<br>
 <div class="row">
     <h2>Carrinho de Compras</h2>
     <? if (!empty($_SESSION['carrinho']['produtos'])): ?>

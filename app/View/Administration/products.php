@@ -1,4 +1,3 @@
-<br>
 <div class="row">
     <h2><i class="fi-shopping-bag"></i> Modelos</h2>
     <hr>

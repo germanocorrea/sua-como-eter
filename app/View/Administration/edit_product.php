@@ -1,4 +1,3 @@
-<br>
 <div class="row">
     <h2>Editar Modelo</h2>
     <form method="post" enctype="multipart/form-data" action="<?php echo WEB_ROOT ?>/administration/edit-product/<?php echo $values->id; ?>" novalidate data-abide="">

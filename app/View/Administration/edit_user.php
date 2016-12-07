@@ -1,4 +1,3 @@
-<br>
 <div class="row columns medium-3 small-12 callout">
     <form action="<?php echo WEB_ROOT; ?>/administration/edit-user/<?php echo $values->id; ?>" method="post">
         <div class="row">
