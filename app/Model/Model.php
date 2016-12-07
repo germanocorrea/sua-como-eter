@@ -211,7 +211,8 @@ abstract class Model
 
     public function deleteById($id)
     {
-        if (is_numeric($id)) {
+        if (is_numeric($id))
+        {
             $options = [
                 'conditions' => [
                     'id = ?' => $id,
@@ -220,7 +221,9 @@ abstract class Model
 
             $sql = $this->mountSQL($options, 'delete');
 
-            if ($this->executeSQL($sql, $options)) return true;
+            $this->executeSQL($sql, $options);
+
+            return true;
         }
 
         return false;

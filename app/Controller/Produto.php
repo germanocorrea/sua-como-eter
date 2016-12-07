@@ -97,7 +97,15 @@ class Produto extends Controller
         header('Location: ' . WEB_ROOT . '/produto/cart');
     }
 
-    public function confirmar_compra(){}
+    public function confirmar_compra()
+    {
+        $this->model->setTableName('itens');
+        foreach ($_SESSION['carrinho']['produtos'] as $produto)
+        {
+            $this->model->deleteById($produto['id']+0);
+        }
+        unset($_SESSION['carrinho']);
+    }
 
     public function not_found() {}
 }
