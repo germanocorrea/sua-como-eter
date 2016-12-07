@@ -111,7 +111,7 @@ class Administration extends Controller
             elseif ($_POST['submit'] == 'update')
             {
                 $this->model->set('id', $id);
-                $this->model->set('tamanho', $_POST['tamanho']);
+                $this->model->set('tamanho', $_POST['size']);
                 $this->model->set('status', $_POST['status']);
 
                 foreach ($this->variables['produtos'] as $produto)

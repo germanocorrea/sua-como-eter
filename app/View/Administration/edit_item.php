@@ -10,7 +10,7 @@
                 <label>Modelo
                     <select name="idProduto" id="modelo">
                         <?php foreach ($values->produtos as $modelo): ?>
-                            <option value="<?php echo $modelo['modelo'] ?>"><?php echo $modelo['modelo'] ?></option>
+                            <option value="<?php echo $modelo['modelo'] ?>" <?php if ($values->idProduto == $modelo['id']) echo 'selected'; ?>><?php echo $modelo['modelo'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </label>
@@ -19,13 +19,17 @@
         </div>
         <div class="small-3 columns">
             <label>Tamanho
-                <?php echo $this->renderSelect(['PP', 'P', 'M', 'G', 'GG'], 'tamanho') ?>
+                <select name="size" id="size">
+                    <?php foreach (['PP', 'P', 'M', 'G', 'GG'] as $tamanho): ?>
+                        <option value="<?php echo $tamanho ?>" <?php if ($values->tamanho == $tamanho) echo 'selected'; ?>><?php echo $tamanho ?></option>
+                    <?php endforeach; ?>
+                </select>
             </label>
         </div>
         <div class="small-3 columns">
             <p>Disponibilidade</p>
             <input type="radio" name="status" value="1" id="disponivel" <?php if ($values->status == 1) echo 'checked'; ?>><label for="disponivel">Disponível</label>
-            <input type="radio" name="status" value="2" id="indisponivel" <?php if ($values->status == 2) echo 'checked'; ?>><label for="indisponivel">Indisponível</label>
+            <input type="radio" name="status" value="2" id="indisponivel" <?php if ($values->status != 1) echo 'checked'; ?>><label for="indisponivel">Indisponível</label>
         </div>
         <div class="row">
             <div class="medium-12 columns">
