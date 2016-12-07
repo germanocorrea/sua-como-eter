@@ -13,6 +13,7 @@ class Index extends Controller
 {
     public  function index()
     {
-        // code
+        $this->model->setTableName('produtos');
+        $this->variables['products'] = $this->model->search('all');
     }
 }

@@ -13,6 +13,7 @@ class Produto extends Controller
 {
     public function index()
     {
+        $this->model->setTableName('produtos');
         $this->variables['products'] = $this->model->search('all');
     }
 
