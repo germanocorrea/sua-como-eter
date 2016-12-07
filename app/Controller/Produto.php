@@ -29,9 +29,15 @@ class Produto extends Controller
         $this->variables['product_id'] = $productId;
         $this->variables['product_name'] = $product->get('modelo');
         $this->variables['product_description'] = $product->get('description');
+        $this->variables['product_status'] = $product->get('status');
 
         $this->model->setTableName('itens');
-        $itens = $this->model->search('all', ['conditions' => ['idProduto = ?' => (int) $productId]]);
+        $itens = $this->model->search('all', [
+            'conditions' => [
+                'idProduto = ?' => (int) $productId,
+                'status = ?' => (int) 1
+            ]
+        ]);
         if ($itens != null)
         {
             foreach ($itens as $item)
