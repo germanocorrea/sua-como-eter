@@ -118,11 +118,19 @@ class User extends Controller
         $this->variables['email'] = $user->get('email');
     }
 
-    public function profile($profile)
+    public function profile()
     {
-        if ($profile != $_SESSION['user'])
-            if ($this->verifyLoggedSession() and $_SESSION['user_type'] != 'admin')
-                header('Location: ' . WEB_ROOT);
+        $user = $this->model->search('one', [
+            'conditions' => [
+                'username = ?' => $_SESSION['user']
+            ]
+        ]);
+        $this->variables['id'] = $user->get('id');
+        $this->variables['username'] = $user->get('username');
+        $this->variables['name'] = $user->get('name');
+        $this->variables['password'] = $user->get('password');
+        $this->variables['email'] = $user->get('email');
+        $this->variables['type'] = $user->get('type');
     }
 
     public function change_password()
