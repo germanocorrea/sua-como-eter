@@ -105,7 +105,7 @@ class Produto extends Controller
         $this->model->setTableName('itens');
         foreach ($_SESSION['carrinho']['produtos'] as $produto)
         {
-            $this->model->deleteById($produto['id']+0);
+            $this->model->deleteById((int) $produto['id']);
         }
         unset($_SESSION['carrinho']);
     }
