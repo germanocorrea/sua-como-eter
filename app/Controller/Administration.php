@@ -18,12 +18,6 @@ class Administration extends Controller
         // code
     }
 
-    public function system()
-    {
-        $this->verifyPermission();
-        // code
-    }
-
     public function products()
     {
         $this->verifyPermission();
@@ -31,8 +25,8 @@ class Administration extends Controller
         if (isset($_POST['modeloSubmit']))
         {
             $this->recordProductData();
+            $this->variables['alert'] = '<script>sweetAlert("Oba!","Modelo cadastrado com sucesso!");</script>';
         }
-
         $this->model->setTableName('produtos');
         $this->variables['produtos'] = $this->model->search('all');
     }
@@ -54,6 +48,7 @@ class Administration extends Controller
             $this->model->set('tamanho', $_POST['tamanho']);
             $this->model->set('status', 1);
             $this->model->record();
+            $this->variables['alert'] = '<script>sweetAlert("Oba!","Item cadastrado com sucesso!");</script>';
         }
 
         $this->model->setTableName('produtos');
@@ -78,12 +73,13 @@ class Administration extends Controller
             if ($_POST['submit'] == 'remove')
             {
                 $this->model->deleteById($id);
-                header('Location: ' . WEB_ROOT . '/administration/products');
+                header('Location: ' . WEB_ROOT . '/administration/products?alert=Modelo removido com sucesso!');
             }
             elseif ($_POST['submit'] == 'update')
             {
                 $this->recordProductData($id);
             }
+            $this->variables['alert'] = '<script>sweetAlert("Oba!","Modelo alterado com sucesso!");</script>';
         }
 
         $produto = $this->model->search('one', [
@@ -110,7 +106,7 @@ class Administration extends Controller
             if ($_POST['submit'] == 'remove')
             {
                 $this->model->deleteById($id);
-                header('Location: ' . WEB_ROOT . '/administration/itens');
+                header('Location: ' . WEB_ROOT . '/administration/itens?alert=Item removido com sucesso!');
             }
             elseif ($_POST['submit'] == 'update')
             {
@@ -126,6 +122,7 @@ class Administration extends Controller
                 $this->model->set('idProduto', $idProduto);
 
                 $this->model->record();
+                $this->variables['alert'] = '<script>sweetAlert("Oba!","Item alterado com sucesso!");</script>';
             }
         }
 
@@ -172,7 +169,7 @@ class Administration extends Controller
             $this->model->set('status', $_POST['status']);
             $this->model->set('type', $_POST['type']);
             $this->model->record();
-            header('Location: ' . WEB_ROOT . '/administration/users');
+            header('Location: ' . WEB_ROOT . '/administration/users?alert=Usuário modificado com sucesso!');
         }
 
         $this->variables['id'] = $id;

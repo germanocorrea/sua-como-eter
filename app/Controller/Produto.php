@@ -14,9 +14,6 @@ class Produto extends Controller
     public function index()
     {
         $this->variables['products'] = $this->model->search('all');
-
-        $this->model->setTableName('images');
-        $this->variables['images'] = $this->model->search('all');
     }
 
     public function view($productId)
@@ -86,12 +83,12 @@ class Produto extends Controller
 
         }
 
-        header('Location: ' . WEB_ROOT . '/produto/cart');
+        header('Location: ' . WEB_ROOT . '/produto/cart?=Item adicionado ao carrinho com sucesso!');
     }
 
     public function limparCarrinho(){
         unset($_SESSION['carrinho']);
-        header('Location: ' . WEB_ROOT . '/produto/cart');
+        header('Location: ' . WEB_ROOT . '/produto/cart?alert=Carrinho limpado com sucesso!');
     }
 
     public function removeFromCart($id)
@@ -100,7 +97,7 @@ class Produto extends Controller
         {
             if ($produto['id'] == $id) unset($_SESSION['carrinho']['produtos'][$key]);
         }
-        header('Location: ' . WEB_ROOT . '/produto/cart');
+        header('Location: ' . WEB_ROOT . '/produto/cart?alert=Item removido do carrinho com sucesso!');
     }
 
     public function confirmar_compra()

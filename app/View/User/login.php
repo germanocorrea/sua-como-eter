@@ -1,6 +1,4 @@
-<div class="row medium-3 small-12">
-
-</div>
+<div class="row medium-3 small-12"></div>
 <br>
 <div class="row columns medium-3 small-12 callout">
     <div class="small-12 columns">

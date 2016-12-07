@@ -39,5 +39,7 @@
         </footer>
         <?php echo $this->loadAssets('js', 'vendor'); ?>
         <?php echo $this->loadAssets('js'); ?>
+        <?php if (isset($values->alert)) echo $values->alert; ?>
+        <?php if (isset($_GET['alert'])) echo'<script>sweetAlert("Oba!", "' . $_GET['alert'] . '");</script>'; ?>
     </body>
 </html>
