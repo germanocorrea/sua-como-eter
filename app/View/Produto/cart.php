@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach ($_SESSION['carrinho']['produtos'] as $produto): ?>
+        <?php if (isset($_SESSION['carrinho']['produtos'])) foreach ($_SESSION['carrinho']['produtos'] as $produto): ?>
             <tr>
                 <td><?php echo $produto['nome']; ?></td>
                 <td><?php echo $produto['size']; ?></td>

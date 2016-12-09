@@ -46,7 +46,7 @@ class View
         $type = strtolower($type);
         foreach ($files as $file)
         {
-            switch ($type)
+            switch ($type)MySQL - suacomoeter@localhost
             {
                 case 'css':
                 case 'stylesheet':

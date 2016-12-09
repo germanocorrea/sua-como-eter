@@ -5,13 +5,13 @@
             <div class="medium-6 columns">
                 <div class="medium-12 columns">
                     <label>Nome
-                        <input name="nomeModelo" type="text" placeholder="Nome do modelo" value="<?php echo $values->modelo; ?>" required pattern="alpha">
+                        <input name="nomeModelo" type="text" placeholder="Nome do modelo" value="<?php echo $values->modelo; ?>" pattern="string" required>
                         <span class="form-error">Nome inválido</span>
                     </label>
                 </div>
                 <div class="medium-12 columns">
                     <label>Preço
-                        <input name="preco" type="number" placeholder="Preço" value="<?php echo $values->preco; ?>" required pattern="number">
+                        <input name="preco" type="text" placeholder="Preço" value="<?php echo $values->preco; ?>" pattern="number" required>
                         <span class="form-error">Preço inválido</span>
                     </label>
                 </div>

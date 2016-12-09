@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="medium-12 columns">
                                     <label>Preço
-                                        <input name="preco" type="number" placeholder="Preço" required pattern="number">
+                                        <input name="preco" type="number" placeholder="Preço" required>
                                         <span class="form-error">Preço inválido</span>
                                     </label>
                                 </div>
